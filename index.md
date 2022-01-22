@@ -30,7 +30,7 @@ BY : Lakhmiri / Sakassa / Benzemroun
 
     
 ```diff 
-@@ text in purple (and bold)@@
+@@ @@
 ```
 
 
