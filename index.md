@@ -24,7 +24,7 @@ BY : Lakhmiri / Sakassa / Benzemroun
      - **_show finished_** is an action which show finished task
      - **_show today task_** is an action which show today task
    - Help menu conaining : "About , About Qt"
-2. 
+2. A Tool bar containing actions like : "new task, show finished, show pending, delete, exit"
    
 
     
