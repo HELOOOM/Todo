@@ -30,7 +30,7 @@ BY : Lakhmiri / Sakassa / Benzemroun
 
     
 ```diff 
-- dfv
+@@ text in purple (and bold)@@
 ```
 
-<font color="red">Status: **Not yet implemented**</font>
+
