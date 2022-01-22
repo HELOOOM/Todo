@@ -15,7 +15,7 @@ BY : Lakhmiri / Sakassa / Benzemroun
 ### In our Task Manager application we have:
 1. A menu bar containing : "File , Options , Help"
    - file menu containing : "New , Exit"
-     - **_New_** is an action which can add a new task to our application
+     - <span style="color:red">**_New_**</span> is an action which can add a new task to our application
      - **_Exit_** is an action which **save** the contenrs befor leaving the application
    - options menu containing : "Delete, show all, show pending task, show finished task, show today task"
      - **_Delete task_** is an action which can delete a selected task
@@ -25,10 +25,11 @@ BY : Lakhmiri / Sakassa / Benzemroun
      - **_show today task_** is an action which show today task
    - Help menu conaining : "About , About Qt"
 2. A Tool bar containing actions like : "new task, show finished, show pending, delete, exit"
+3. A List view; in our application we have tree each one display a specific type of tasks
    
 
     
-   
+   <span style="color:red">**_New_**</span>
 
 
 
