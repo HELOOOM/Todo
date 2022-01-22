@@ -15,7 +15,7 @@ BY : Lakhmiri / Sakassa / Benzemroun
 ### In our Task Manager application we have:
 1. A menu bar containing : "File , Options , Help"
    - file menu containing : "New , Exit"
-     - <span style="color:red">**_New_**</span> is an action which can add a new task to our application
+     - **_New_** is an action which can add a new task to our application
      - **_Exit_** is an action which **save** the contenrs befor leaving the application
    - options menu containing : "Delete, show all, show pending task, show finished task, show today task"
      - **_Delete task_** is an action which can delete a selected task
@@ -27,6 +27,21 @@ BY : Lakhmiri / Sakassa / Benzemroun
 2. A Tool bar containing actions like : "new task, show finished, show pending, delete, exit"
 3. A List view; in our application we have tree each one display a specific type of tasks
    
+# our application look like that:
+![image](https://user-images.githubusercontent.com/53974876/150644640-0ee5e304-e3f2-4e39-b20e-95321bdb8a71.png)
+
+when you click **N** (in your keyboard) or presing new file in the application a Qdialoge will pop out
+
+![image](https://user-images.githubusercontent.com/53974876/150644932-c500a620-9f5e-4d16-a10f-ff85d63bf88b.png)
+
+## this QDialog is containing 
+1. A description for your task 
+2. A check box for finished tasks
+3. tags 
+4. date for the task (for today or for a specifique date)
+5. two push buttons (ok and cancel)
+
+
 
     
     
@@ -37,4 +52,4 @@ BY : Lakhmiri / Sakassa / Benzemroun
 - [x] #739
 
 
-- [] ldkhfds\kl 
+- [ ] ldkhfds\kl 
