@@ -13,9 +13,21 @@ BY : Lakhmiri / Sakassa / Benzemroun
 
 ## First let's describe our application
 ### In our Task Manager application we have:
-1. a menu bar containing : "File , Options , Help"
-    
+1. A menu bar containing : "File , Options , Help"
+   - file menu containing : "New , Exit"
+     - **_New_** is an action which can add a new task to our application
+     - **_Exit_** is an action which **save** the contenrs befor leaving the application
+   - options menu containing : "Delete, show all, show pending task, show finished task, show today task"
+     - **_Delete task_** is an action which can delete a selected task
+     - **_show all_** is an action which show pending,today and finished task
+     - **_show pending_** is an action which show pending task
+     - **_show finished_** is an action which show finished task
+     - **_show today task_** is an action which show today task
+   - Help menu conaining : "About , About Qt"
+2. 
    
+
+    
    
 
 
