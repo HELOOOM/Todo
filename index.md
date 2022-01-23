@@ -237,7 +237,62 @@ void savePendingContent(QFile *filename=nullptr) const;
     
  - ### Now we will see the implementation of eache slot and function   
     
-    
+ ## taskmanager.cpp
+ - ### _includes_
+ ```c++
+ #include "taskmanager.h"
+#include "ui_taskmanager.h"
+#include "task.h"
+#include "ui_task.h"
+#include <stdlib.h>
+#include <QDrag>
+#include <QMimeData>
+#include <QDropEvent>
+ ```
+ 
+ - ### Starting with the constructor
+ ```c++
+ taskmanager::taskmanager(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::taskmanager)
+{
+    ui->setupUi(this);
+
+    QStandardItem *model = new QStandardItem;
+
+   model1 = new QStandardItemModel();
+   model2 = new QStandardItemModel();
+   model3 = new QStandardItemModel();
+
+   QFile  lyouma{"Today tasks.txt"};
+   QFile salaw{"Finished tasks.txt"};
+   QFile apres{"Pending tasks.txt"};
+
+   model->setText("");
+   model1->appendRow(model);
+   ui->listView1->setModel(model1);
+   model2->appendRow(model);
+   ui->listView2->setModel(model2);
+   model3->appendRow(model);
+   ui->listView3->setModel(model3);
+
+   model1->removeRow(0);
+   model2->removeRow(0);
+   model3->removeRow(0);
+
+   loadContent(&lyouma);
+   loadContent(&salaw);
+   loadContent(&apres);
+
+   setAcceptDrops(false);
+      //ui->listView1->setAcceptDrops(true);
+   ui->listView1->setAcceptDrops(true);
+   ui->listView2->setAcceptDrops(true);
+   ui->listView3->setAcceptDrops(true);
+
+}
+ ```
+ 
     
     
     
