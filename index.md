@@ -338,7 +338,54 @@ T.close();
 }
 ```
     
-    
+- ### load content 
+this function load the content of each listview from the save
+
+```c++
+void taskmanager::loadContent(QFile *filename){
+
+    if (filename->open(QIODevice::ReadOnly)) {
+        QTextStream in(filename);
+        if(filename->fileName()==salaw.fileName()){
+            while (!in.atEnd()) {
+                QStandardItem *it = new QStandardItem();
+
+                QString line = in.readLine();
+            Finishedtasks.append(line);
+            it->setIcon(QPixmap(":/new/prefix1/task-completed.png"));
+            it->setText(line);
+              model3->appendRow(it);
+              ui->listView3->setModel(model3);
+         }
+     }
+        else if(filename->fileName()==lyouma.fileName()){
+            while (!in.atEnd()) {
+                QStandardItem *it = new QStandardItem();
+
+                QString line = in.readLine();
+             Todaytasks.append(line);
+             it->setIcon(QPixmap(":/new/prefix1/task.png"));
+             it->setText(line);
+             model1->appendRow(it);
+                 ui->listView1->setModel(model1);
+     }
+  }
+        else if(filename->fileName()==apres.fileName()){
+            while (!in.atEnd()) {
+                QStandardItem *it = new QStandardItem();
+                QString line = in.readLine();
+                Pendingtasks.append(line);
+                it->setIcon(QPixmap(":/new/prefix1/data-pending.png"));
+                 it->setText(line);
+                 model2->appendRow(it);
+
+                 ui->listView2->setModel(model2);
+             }
+         }
+    }
+}
+
+```
     
     
    
