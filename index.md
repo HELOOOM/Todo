@@ -1,5 +1,6 @@
 ###### Top
 [Bottom](#bottom)
+
 # ToDo Application using containers
 
 ## **BY** : 
@@ -534,6 +535,7 @@ if(ui->listView3->model()->rowCount()!=0){
       }
    }
 }
+
 ```
 - ### In a Task manager application you might want to move a task from list of pending task to today task in our application this functionality is possible 
 - ### we have three list view so we will implement three slots (on_listView1_doubleClicked , on_listView2_doubleClicked , on_listView3_doubleClicked)
