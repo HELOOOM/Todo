@@ -2,7 +2,13 @@
 [Bottom](#bottom)
 # ToDo Application using containers
 
-BY : Lakhmiri / Sakassa / Benzemroun
+## **BY** : 
+- [x] **Benzemroun Badr**
+- [x] **Lakhmiri Mohammed Elias**
+- [x] **Sakassa Rachid**
+
+
+ / Sakassa / Benzemroun
 
 ## Introduction
 ### **TODO** List are the lists that we generally use to maintain our day to day tasks or list of everything that we have to do. It is helpful in planning our daily schedules. We can add more tasks any time and delete a task which is completed. The four major tasks that we can perform in a TODO list are:
@@ -529,8 +535,162 @@ if(ui->listView3->model()->rowCount()!=0){
    }
 }
 ```
-- ###     
-    
+- ### In a Task manager application you might want to move a task from list of pending task to today task in our application this functionality is possible 
+- ### we have three list view so we will implement three slots (on_listView1_doubleClicked , on_listView2_doubleClicked , on_listView3_doubleClicked)
+- ### here is the implementation of each one of them
+
+- ## on_listView1_doubleClicked
+
+```c++
+void taskmanager::on_listView1_doubleClicked(const QModelIndex &index)
+{
+
+    QRegExp rx("(\\:)");
+    QStringList query = Todaytasks.at(index.row()).split(rx);
+    task T;
+    T.ui->date->setDate(QDate::currentDate());
+    T.ui->Description->setText(query.at(0));
+    T.ui->tag->setCurrentIndex(T.ui->tag->findText(query.at(2)));
+    T.exec();
+      QStandardItem *it = new QStandardItem();
+    if(T.logic){
+        Todaytasks.removeAt(index.row());
+        model1->removeRow(index.row());
+         saveTodayContent(&lyouma);
+           if(T.ui->fincheck->isChecked()){
+
+              Finishedtasks.append(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+              it->setIcon(QPixmap(":/new/prefix1/task-completed.png"));
+              it->setText(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+
+              model3->appendRow(it);
+              ui->listView3->setModel(model3);
+
+           }else if(T. ui->date->date().toString("ddd MMMM d yyyy")==QDate::currentDate().toString("ddd MMMM d yyyy")){
+               Todaytasks.append(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+               it->setIcon(QPixmap(":/new/prefix1/task.png"));
+               it->setText(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+               model1->appendRow(it);
+               ui->listView1->setModel(model1);
+
+           }
+           else{
+               Pendingtasks.append(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+               it->setIcon(QPixmap(":/new/prefix1/data-pending.png"));
+               it->setText(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+
+               model2->appendRow(it);
+               ui->listView2->setModel(model2);
+           }
+    T.close();
+
+      }
+    else
+        QMessageBox::critical(this,"faaaaalse","Canceled");
+}
+```
+- ## on_listView2_doubleClicked
+```c++
+void taskmanager::on_listView2_doubleClicked(const QModelIndex &index)
+{
+    QRegExp rx("(\\:)");
+    QStringList query = Pendingtasks.at(index.row()).split(rx);
+    task T;
+    QDate date;
+    T.ui->date->setDate(date.fromString(query.at(1),"ddd MMMM d yyyy"));
+    T.ui->Description->setText(query.at(0));
+    T.ui->tag->setCurrentIndex(T.ui->tag->findText(query.at(2)));
+    T.exec();
+      QStandardItem *it = new QStandardItem();
+    if(T.logic){
+        Pendingtasks.removeAt(index.row());
+
+        model2->removeRow(index.row());
+         savePendingContent(&apres);
+
+           if(T.ui->fincheck->isChecked()){
+
+              Finishedtasks.append(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+              it->setIcon(QPixmap(":/new/prefix1/task-completed.png"));
+              it->setText(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+
+              model3->appendRow(it);
+              ui->listView3->setModel(model3);
+
+
+           }else if(T. ui->date->date().toString("ddd MMMM d yyyy")==QDate::currentDate().toString("ddd MMMM d yyyy")){
+               Todaytasks.append(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+               it->setIcon(QPixmap(":/new/prefix1/task.png"));
+               it->setText(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+               model1->appendRow(it);
+               ui->listView1->setModel(model1);
+
+           }
+           else{
+               Pendingtasks.append(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+               it->setIcon(QPixmap(":/new/prefix1/data-pending.png"));
+               it->setText(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+
+               model2->appendRow(it);
+               ui->listView2->setModel(model2);
+           }
+    T.close();
+
+      }
+    else
+        QMessageBox::critical(this,"faaaaalse","Canceled");
+
+}
+```
+
+- ## on_listView3_doubleClicked
+```c++
+void taskmanager::on_listView3_doubleClicked(const QModelIndex &index)
+{
+    QRegExp rx("(\\:)");
+    QStringList query = Finishedtasks.at(index.row()).split(rx);
+    task T;
+    QDate date;
+    T.ui->date->setDate( date.fromString(query.at(1),"ddd MMMM d yyyy"));
+    T.ui->Description->setText(query.at(0));
+    T.ui->tag->setCurrentIndex(T.ui->tag->findText(query.at(2)));
+    T.ui->fincheck->setChecked(true);
+    T.exec();
+      QStandardItem *it = new QStandardItem();
+    if(T.logic){
+        Finishedtasks.removeAt(index.row());
+        model3->removeRow(index.row());
+         saveFinishedContent(&salaw);
+           if(T.ui->fincheck->isChecked()){
+
+              Finishedtasks.append(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+              it->setIcon(QPixmap(":/new/prefix1/task-completed.png"));
+              it->setText(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+              model3->appendRow(it);
+              ui->listView3->setModel(model3);
+           }else if(T. ui->date->date().toString("ddd MMMM d yyyy")==QDate::currentDate().toString("ddd MMMM d yyyy")){
+               Todaytasks.append(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+               it->setIcon(QPixmap(":/new/prefix1/task.png"));
+               it->setText(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+               model1->appendRow(it);
+               ui->listView1->setModel(model1);
+           }
+           else{
+               Pendingtasks.append(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+               it->setIcon(QPixmap(":/new/prefix1/data-pending.png"));
+               it->setText(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+" :"+ T.ui->tag->currentText());
+
+               model2->appendRow(it);
+               ui->listView2->setModel(model2);
+           }
+    T.close();
+      }
+    else
+        QMessageBox::critical(this,"faaaaalse","Canceled");
+
+}
+
+```
     
     
     
@@ -542,9 +702,4 @@ if(ui->listView3->model()->rowCount()!=0){
  [Top](#top)  
  ###### Bottom
 
-```diff 
-@@ gfngn @@
-```
-- [x] #739
 
-- [ ] ldkhfds\kl 
