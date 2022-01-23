@@ -137,7 +137,7 @@ task::~task()
     delete ui;
 }
 ```
-- ### Now the implementation for the Two slots already declared in [task.h](taskh)  
+- ### Now the implementation for the Two slots already declared in [task.h](task-h)  
 ```c++
 void task::on_OK_clicked()
 {
