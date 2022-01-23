@@ -71,9 +71,38 @@ BY : Lakhmiri / Sakassa / Benzemroun
 ![image](https://user-images.githubusercontent.com/53974876/150646852-22d77763-2d50-4895-b388-b5875f522ee5.png)
 
     
-### **To result with such a functional application you have to go through multiple functions, slots, actions and methods (But don't worry we will explain the functionality and role of each part of our code)** 
+# **To result with such a functional application you have to go through multiple functions, slots, actions and methods (But don't worry we will explain the functionality and role of each part of our code)** 
 
+ - ## First we create two **UI** **( task.ui , taskmanager.ui )**
 
+![Screenshot-2022-01-23-095808](https://user-images.githubusercontent.com/53974876/150671610-901ec496-e154-4ab5-a7e8-788c793304d7.png)
+
+- ## Now let's see the (Header) task
+
+## Task.h
+ our class task will inherit from QDialog
+
+```c++
+#ifndef TASK_H
+#define TASK_H
+#include <QDialog>
+#include <QStringListModel>
+#include "taskmanager.h"
+#include<QtDebug>
+
+namespace Ui {
+class task;
+}
+
+class task : public QDialog
+{
+    Q_OBJECT
+
+public:
+ explicit task(QWidget *parent = nullptr);
+  ~task();
+```
+- ## Now we will add boolean named ` logic ` we will see in the next steps why
     
     
     
