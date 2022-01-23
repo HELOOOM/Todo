@@ -151,6 +151,38 @@ void task::on_Cancel_clicked()
 }
 ```
 
+- ### Moving to taskmanager and starting with `taskmanager.h`
+
+## taskmanager.h
+
+- ###  first our class taskmanager will inherit from QMainWindow
+
+```c++
+#ifndef TASKMANAGER_H
+#define TASKMANAGER_H
+#include <QMainWindow>
+#include<QStringListModel>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
+#include <QCloseEvent>
+#include <QMessageBox>
+#include <QStandardItemModel>
+#include <QMouseEvent>
+#include "task.h"
+#include <QCloseEvent>
+QT_BEGIN_NAMESPACE
+namespace Ui { class taskmanager; }
+QT_END_NAMESPACE
+
+class taskmanager : public QMainWindow
+{
+    Q_OBJECT
+
+```
+
+- ### we will need a mode ( here our model is of type QStandardItemModel )
+dvwgrw
     
     
     
