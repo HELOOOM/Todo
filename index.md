@@ -296,7 +296,8 @@ taskmanager::~taskmanager()
 }
  ```
 - ### The implementation of the `on_actionNew_triggered()` slot
-here we will use the bool `logic` already declared in `task` if the ok button in `task.ui` is clicked `logic=true` if not `logic=false`
+here we will use the bool `logic` already declared in `task` if the **Ok** button in `task.ui` is clicked `logic=true` if **Cancel** is clickef `logic=false`
+after checking the logic if true or not now we should check the type of the task (finished,today or pending) . We passed through this conditions to store each task in their appropriate listView  
 
     
     
