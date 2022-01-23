@@ -250,7 +250,7 @@ void savePendingContent(QFile *filename=nullptr) const;
 #include <QDropEvent>
  ```
  
- - ### Starting with the constructor
+ - ### Starting with the constructor and Destructor
  ```c++
  taskmanager::taskmanager(QWidget *parent)
     : QMainWindow(parent)
@@ -289,10 +289,15 @@ void savePendingContent(QFile *filename=nullptr) const;
    ui->listView1->setAcceptDrops(true);
    ui->listView2->setAcceptDrops(true);
    ui->listView3->setAcceptDrops(true);
-
+}
+taskmanager::~taskmanager()
+{
+    delete ui;
 }
  ```
- 
+- ### The implementation of the `on_actionNew_triggered()` slot
+here we will use the bool `logic` already declared in `task` if the ok button in `task.ui` is clicked `logic=true` if not `logic=false`
+
     
     
     
