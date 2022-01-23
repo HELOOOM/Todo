@@ -181,7 +181,7 @@ class taskmanager : public QMainWindow
 
 ```
 
-- ### we will need a model ( here our model is of type QStandardItemModel )
+- ### we will need a model ( our model is of type QStandardItemModel )
 - ### we will need three string where we will store the three tasks
 - ### we will need a file for each one ,in this files we can find our saves
 ```c++
@@ -201,13 +201,39 @@ public:
       QFile salaw{"Finished tasks.txt"};
       QFile apres{"Pending tasks.txt"};
 ```
+- ### A void function for load content
+
+```c++
+void loadContent(QFile *filename=nullptr);
+```
+- ### three void function for saving
+```c++
+void saveFinishedContent(QFile *filename=nullptr) const;
+void saveTodayContent(QFile *filename=nullptr) const;
+void savePendingContent(QFile *filename=nullptr) const;
+```
+- ### A public slot to create new task
+ ```c++
+ public slots:
+    void on_actionNew_triggered();
+ ```
+ - ### Here we have all the private slots for our actions
+ ```c++
+ private slots:
+ void closeEvent (QCloseEvent *event);
+ void on_actionExit_triggered();
+ void on_actionShow_Pending_triggered();
+ void on_actionShow_Finished_triggered();
+ void on_actionShow_Today_tasks_triggered();
+ void on_actionDelete_triggered();
+ void on_actionShow_All_triggered(); 
+ //to change a task from a listView to another
+ void on_listView1_doubleClicked(const QModelIndex &index);
+ void on_listView2_doubleClicked(const QModelIndex &index);
+ void on_listView3_doubleClicked(const QModelIndex &index);
+ ```   
     
-    
-    
-    
-    
-    
-    
+ - ### Now we will see the implementation of eache slot and function   
     
     
     
