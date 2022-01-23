@@ -80,7 +80,7 @@ BY : Lakhmiri / Sakassa / Benzemroun
 - ## Now let's see the (Header) task
 
 ## Task.h
- our class task will inherit from QDialog
+- ### our class task will inherit from QDialog
 
 ```c++
 #ifndef TASK_H
@@ -102,11 +102,55 @@ public:
  explicit task(QWidget *parent = nullptr);
   ~task();
 ```
-- ## Now we will add boolean named ` logic ` we will see in the next steps why
-    
-    
-    
-    
+- ### Now we will add boolean named ` logic ` we will see in the next steps why
+ ```c++
+ bool logic=false;
+
+Ui::task *ui;
+```
+- ### Two private slot
+```c++
+private slots:
+void on_OK_clicked();
+void on_Cancel_clicked();
+private:
+};
+ ```
+ ## Task.cpp
+
+- ### First we setup our UI
+```c++
+#include "task.h"
+#include "ui_task.h"
+#include "taskmanager.h"
+#include "ui_taskmanager.h"
+#include <QDate>
+task::task(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::task)
+{
+    ui->setupUi(this);
+}
+
+task::~task()
+{
+    delete ui;
+}
+```
+- ### Now we can implement the Two slots already declared in `task.h`  
+```c++
+void task::on_OK_clicked()
+{
+    logic=true;
+    close();
+}
+void task::on_Cancel_clicked()
+{
+    logic=false;
+    close();
+}
+```
+
     
     
     
