@@ -72,7 +72,8 @@ BY : Lakhmiri / Sakassa / Benzemroun
 
     
 ### **To result with such a functional application you have to go through multiple functions, slots, actions and methods (But don't worry we will explain the functionality and role of each part of our code)** 
-    
+
+
     
     
     
