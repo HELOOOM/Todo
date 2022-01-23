@@ -51,7 +51,7 @@
 2. A check box for finished tasks
 3. tags 
 4. date for the task (for today or for a specifique date)
-5. two push buttons (ok and cancel)
+5. two push buttons (ok and cancel) 
 
 
 
