@@ -448,8 +448,24 @@ void taskmanager::saveFinishedContent(QFile *filename) const
          qApp->exit();
 }
 ```
-    
-    
+
+- ### Close event
+```c++
+void taskmanager::closeEvent (QCloseEvent *event)
+{
+    QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Task MAnager",
+                                                                tr("Are you sure?\n"),
+                                                                QMessageBox::No | QMessageBox::Yes,
+                                                                QMessageBox::Yes);
+    if (resBtn != QMessageBox::Yes) {
+        event->ignore();
+    } else {
+        on_actionExit_triggered();
+        event->accept();
+    }
+}
+```
+
     
     
     
