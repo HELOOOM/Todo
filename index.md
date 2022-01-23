@@ -181,8 +181,26 @@ class taskmanager : public QMainWindow
 
 ```
 
-- ### we will need a mode ( here our model is of type QStandardItemModel )
-dvwgrw
+- ### we will need a model ( here our model is of type QStandardItemModel )
+- ### we will need three string where we will store the three tasks
+- ### we will need a file for each one ,in this files we can find our saves
+```c++
+public:
+    taskmanager(QWidget *parent = nullptr);
+    ~taskmanager();
+    QStandardItemModel *model=nullptr;
+    QStandardItemModel *model1=nullptr;
+    QStandardItemModel *model2=nullptr;
+    QStandardItemModel *model3=nullptr;
+      
+      QStringList Todaytasks;
+      QStringList Finishedtasks;
+      QStringList Pendingtasks;
+      
+      QFile  lyouma{"Today tasks.txt"};
+      QFile salaw{"Finished tasks.txt"};
+      QFile apres{"Pending tasks.txt"};
+```
     
     
     
