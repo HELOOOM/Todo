@@ -339,7 +339,7 @@ T.close();
 ```
     
 - ### load content 
-this function load the content of each listview from the save
+this function load the content of each listview using `QStringList` (Todaytasks,Finishedtasks,Pendingtasks)
 
 ```c++
 void taskmanager::loadContent(QFile *filename){
@@ -386,7 +386,56 @@ void taskmanager::loadContent(QFile *filename){
 }
 
 ```
-    
+- ### Saves
+#### We will implement the three functions which saves the content of each listview
+- ### saveTodayContent
+```c++
+void taskmanager::saveTodayContent(QFile *filename) const
+{
+    //Openign the file
+    if(filename->open(QIODevice::WriteOnly))  //Opening the file in writing mode
+    {
+        //Initiating a stream using the file
+        QTextStream out(filename);
+        for ( int i=0; i < Todaytasks.size(); ++i )
+                        out << Todaytasks.at(i) << "\n";
+    }
+    filename->close();
+}
+```
+- ### savePendingContent
+```c++
+void taskmanager::savePendingContent(QFile *filename) const
+{
+    //Openign the file
+    if(filename->open(QIODevice::WriteOnly))  //Opening the file in writing mode
+    {
+        //Initiating a stream using the file
+        QTextStream out(filename);
+        for ( int i=0; i < Pendingtasks.size(); ++i )
+                        out << Pendingtasks.at(i) << "\n";
+    }
+    filename->close();
+}
+```
+- ### saveFinishedContent
+```c++
+void taskmanager::saveFinishedContent(QFile *filename) const
+{
+    //Openign the file
+    if(filename->open(QIODevice::WriteOnly))  //Opening the file in writing mode
+    {
+        //Initiating a stream using the file
+        QTextStream out(filename);
+
+        for ( int i=0; i < Finishedtasks.size(); ++i )
+                        out << Finishedtasks.at(i) << "\n";
+    }
+    filename->close();
+}
+```
+
+
     
    
     
