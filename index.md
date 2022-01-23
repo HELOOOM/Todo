@@ -437,7 +437,8 @@ void taskmanager::saveFinishedContent(QFile *filename) const
 
 
 - ### exit is an action which **save** the contents befor leaving the application
-   ```c++
+
+```c++
    void taskmanager::on_actionExit_triggered()
 {
         saveTodayContent(&lyouma);
@@ -446,7 +447,7 @@ void taskmanager::saveFinishedContent(QFile *filename) const
          QMessageBox::information(this,"DONE","saveeeed & exited");
          qApp->exit();
 }
-   ```
+```
     
     
     
