@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>icone2/WhatsApp Image 2022-01-21 at 21.52.00.jpeg</file>
+        <file>icone2/WhatsApp Image 2022-01-21 at 21.52.01 (1).jpeg</file>
+        <file>icone2/WhatsApp Image 2022-01-21 at 21.52.01 (2).jpeg</file>
+        <file>icone2/WhatsApp Image 2022-01-21 at 21.52.01.jpeg</file>
+        <file>icone2/WhatsApp Image 2022-01-21 at 21.52.02.jpeg</file>
+    </qresource>
+</RCC>

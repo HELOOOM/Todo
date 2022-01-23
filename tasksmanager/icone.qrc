@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>data-pending.png</file>
+        <file>filled-trash.png</file>
+        <file>quit_icon.png</file>
+        <file>task.png</file>
+        <file>task-completed.png</file>
+    </qresource>
+</RCC>
