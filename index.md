@@ -296,9 +296,47 @@ taskmanager::~taskmanager()
 }
  ```
 - ### The implementation of the `on_actionNew_triggered()` slot
-here we will use the bool `logic` already declared in `task` if the **Ok** button in `task.ui` is clicked `logic=true` if **Cancel** is clickef `logic=false`
-after checking the logic if true or not now we should check the type of the task (finished,today or pending) . We passed through this conditions to store each task in their appropriate listView  
+here we will use the bool `logic` already declared in `task` if the **Ok** button in `task.ui` is clicked `logic=true` if **Cancel** is clicked `logic=false`
+after checking the logic if is it true or not now we should check the type of the task (finished,today or pending) . We passed through this conditions to store each task in their appropriate listView  
 
+
+```c++
+void taskmanager::on_actionNew_triggered()
+{
+task T;
+T.ui->date->setDate(QDate::currentDate());
+T.exec();
+  QStandardItem *it = new QStandardItem();
+  
+if(T.logic){
+       if(T.ui->fincheck->isChecked()){
+          Finishedtasks.append(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+          it->setIcon(QPixmap(":/new/prefix1/prfix1/task-completed.png"));
+          it->setText(T.ui->Description->text()+" : "+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+          model3->appendRow(it);
+          ui->listView3->setModel(model3);
+          ui->listView3->update();
+       }
+       else if(T. ui->date->date().toString("ddd MMMM d yyyy")==QDate::currentDate().toString("ddd MMMM d yyyy")){
+           Todaytasks.append(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+           it->setIcon(QPixmap(":/new/prefix1/task.png"));
+           it->setText(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+           model1->appendRow(it);
+           ui->listView1->setModel(model1);
+           ui->listView1->update();
+       }
+       else{
+           Pendingtasks.append(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+           it->setIcon(QPixmap(":/new/prefix1/data-pending.png"));
+           it->setText(T.ui->Description->text()+":"+ T.ui->date->date().toString("ddd MMMM d yyyy")+":"+ T.ui->tag->currentText());
+           model2->appendRow(it);
+           ui->listView2->setModel(model2);
+           ui->listView2->update();
+      }
+T.close();
+  }
+}
+```
     
     
     
