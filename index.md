@@ -81,6 +81,14 @@
     
 # **To result with such a functional application you have to go through multiple functions, slots, actions and methods (But don't worry we will explain the functionality and role of each part of our code)** 
 
+[Task.h](#taskh)
+
+[Task.cpp](#taskcpp)
+
+[Taskmanager.h](#taskmanagerh)
+
+[Taskmanager.cpp](#taskmanagercpp)
+
  - ## First we create two **UI** **( task.ui , taskmanager.ui )**
 
 ![Screenshot-2022-01-23-095808](https://user-images.githubusercontent.com/53974876/150671610-901ec496-e154-4ab5-a7e8-788c793304d7.png)
@@ -161,7 +169,7 @@ void task::on_Cancel_clicked()
 
 - ### Moving to taskmanager and starting with `taskmanager.h`
 
-## taskmanager.h
+## Taskmanager.h
 
 - ###  first our class taskmanager will inherit from QMainWindow
 
@@ -243,7 +251,7 @@ void savePendingContent(QFile *filename=nullptr) const;
     
  - ### Now we will see the implementation of eache slot and function   
     
- ## taskmanager.cpp
+ ## Taskmanager.cpp
  - ### _includes_
  ```c++
  #include "taskmanager.h"
