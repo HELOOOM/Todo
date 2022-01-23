@@ -1,3 +1,4 @@
+###### Top
 # ToDo Application using containers
 
 BY : Lakhmiri / Sakassa / Benzemroun
@@ -227,7 +228,7 @@ void savePendingContent(QFile *filename=nullptr) const;
  void on_actionShow_Today_tasks_triggered();
  void on_actionDelete_triggered();
  void on_actionShow_All_triggered(); 
- //to change a task from a listView to another
+ //to move a task from a listView to another
  void on_listView1_doubleClicked(const QModelIndex &index);
  void on_listView2_doubleClicked(const QModelIndex &index);
  void on_listView3_doubleClicked(const QModelIndex &index);
@@ -240,6 +241,7 @@ void savePendingContent(QFile *filename=nullptr) const;
     
     
     
+   
     
     
     
@@ -253,12 +255,10 @@ void savePendingContent(QFile *filename=nullptr) const;
     
     
     
-    
-    
+ [Top](#top)   
 ```diff 
 @@ gfngn @@
 ```
 - [x] #739
-
 
 - [ ] ldkhfds\kl 
