@@ -465,9 +465,71 @@ void taskmanager::closeEvent (QCloseEvent *event)
     }
 }
 ```
+- ### we have three slots called `on_actionShow_Pending_triggered , on_actionShow_Finished_triggered , on_actionShow_Today_tasks_triggered , on_actionShow_All_triggered`
 
-    
-    
+```c++
+void taskmanager::on_actionShow_Pending_triggered()
+{
+    ui->listView1->hide();
+    ui->listView3->hide();
+    ui->listView2->show();
+}
+void taskmanager::on_actionShow_Finished_triggered()
+{
+    ui->listView1->hide();
+    ui->listView2->hide();
+    ui->listView3->show();
+}
+void taskmanager::on_actionShow_Today_tasks_triggered()
+{
+    ui->listView2->hide();
+    ui->listView3->hide();
+    ui->listView1->show();
+}
+void taskmanager::on_actionShow_All_triggered()
+{
+    ui->listView1->show();
+    ui->listView2->show();
+    ui->listView3->show();
+}
+```
+- ### Delete
+```c++
+void taskmanager::on_actionDelete_triggered()
+{
+if( ui->listView1->model()->rowCount()!=0){
+    QModelIndexList indexes1;
+    indexes1= ui->listView1->selectionModel()->selectedIndexes();
+
+    for(auto iter = indexes1.constBegin(); iter != indexes1.constEnd(); ++iter){
+Todaytasks.removeAt((*iter).row());
+       model1->removeRow((*iter).row());
+        }
+}
+
+if (ui->listView2->model()->rowCount()!=0){
+    QModelIndexList indexes2;
+    indexes2 = ui->listView2->selectionModel()->selectedIndexes();
+
+    for(auto iter = indexes2.constBegin(); iter != indexes2.constEnd(); ++iter){
+        Pendingtasks.removeAt((*iter).row());
+       model2->removeRow((*iter).row());
+    }
+}
+
+if(ui->listView3->model()->rowCount()!=0){
+    QModelIndexList indexes3;
+    indexes3 = ui->listView3->selectionModel()->selectedIndexes();
+
+    for(auto iter = indexes3.constBegin(); iter != indexes3.constEnd(); ++iter){
+        Finishedtasks.removeAt((*iter).row());
+
+       model3->removeRow((*iter).row());
+      }
+   }
+}
+```
+- ###     
     
     
     
