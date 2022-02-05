@@ -708,7 +708,8 @@ void taskmanager::on_listView3_doubleClicked(const QModelIndex &index)
     
     
     
-    
+    ![icons8-cursor-64](https://user-images.githubusercontent.com/53974876/152624010-bb1bc11b-df54-46ee-b40d-2c48fed2bc50.png)
+
     
     
     
